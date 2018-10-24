@@ -1,0 +1,66 @@
+<ion-header class="cardHeader">
+  <ion-navbar color="darkseagreen">
+    <ion-title>Galery</ion-title>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <div padding="">
+    <ion-item>
+      <ion-label>Mot clé</ion-label>
+      <ion-input padding type="text" [(ngModel)]="motcle"></ion-input>
+    </ion-item>
+  </div>
+  <button ion-button color="primary" round (click)="Search()" block>Chercher</button>
+
+  <ion-card *ngFor="let im of images?.hits">
+    <ion-card-header>
+      <ion-card-title>Photo</ion-card-title>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="{{im.userImageURL}}">
+        </ion-avatar>
+        <p>{{im.user}}</p>
+        <p>{{im.user_id}}</p>
+      </ion-item>
+
+    </ion-card-header>
+    <img src="{{im.webformatURL}}" (click)="showDetail(im)">
+    <ion-card-content >
+     <p>Tags:
+       {{im.tags}}
+     </p>
+      <p>Hauteur:{{im.imageHeight}}</p>
+      <p>Largeur:{{im.imageWidth}}</p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{im.likes}} Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-start clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>{{im.comments}} Comments</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+        {{im.favorites}} favorites
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+</ion-content>

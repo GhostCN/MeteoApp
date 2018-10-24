@@ -1,0 +1,39 @@
+<ion-header class="cardHeader">
+  <ion-navbar color="darkseagreen">
+    <ion-title>Meteo</ion-title>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form #f="ngForm" (submit)="onGetMeteo(f.value)">
+    <ion-item>
+      <ion-label floating>Ville</ion-label>
+      <ion-input type="text" name="ville" ngModel required=""></ion-input>
+    </ion-item>
+   <button ion-button="" color="primary" type="submit" block [disabled]="!f.valid">Charger</button>
+  </form>
+
+  <ion-list *ngIf="climat">
+    <ion-list-header>
+      Donnée Meteo
+    </ion-list-header>
+
+    <ion-item *ngFor="let cl of climat.list">
+      <ion-avatar item-start="">
+        <img src="assets/imgs/{{cl.weather[0].main}}.jpeg">
+      </ion-avatar>
+
+      <h2>Date: {{cl.dt*1000 | date:"dd/MM/yyyy HH:mm"}}</h2>
+      <p>Température: <strong>{{cl.main.temp-273.15 | number:"1.2-2"}} C</strong></p>
+      <p>Ville: <strong>{{climat.city.coord.country}}</strong></p>
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+

@@ -1,0 +1,50 @@
+<ion-header class="cardHeader">
+  <ion-navbar color="primary">
+    <ion-title>Détails Place</ion-title>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-buttons end="">
+      <button ion-button="" icon-only="" (click)="oneTakePicture()">
+        <ion-icon name="camera"></ion-icon>
+      </button>
+    </ion-buttons>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card >
+    <ion-card-header>
+      <ion-card-title>Places</ion-card-title>
+      {{place.title}}
+    </ion-card-header>
+
+    <ion-card-content >
+     <p>Title: <strong>{{place.title}}</strong></p>
+      <p>Pays: <strong>{{place.country}}</strong></p>
+      <p>Ville: <strong>{{place.city}}</strong></p>
+      <p>Latitude: <strong>{{place.location.latitude}}</strong></p>
+      <p>Longitude: <strong>{{place.location.longitude}}</strong></p>
+
+    </ion-card-content>
+
+    <div>
+      <img src="{{photo}}">
+    </div>
+
+    <ion-card-content >
+      <agm-map [latitude]="place.location.latitude" [longitude]="place.location.longitude" [zoom]="16">
+        <agm-marker [latitude]="place.location.latitude" [longitude]="place.location.longitude"></agm-marker>
+      </agm-map>
+
+    </ion-card-content>
+
+
+  </ion-card>
+
+</ion-content>
+
+

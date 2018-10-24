@@ -1,0 +1,35 @@
+<ion-header class="cardHeader">
+  <ion-navbar color="darkseagreen">
+    <ion-title>New Place</ion-title>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <form #f="ngForm" (submit)="onAdd(f.value)">
+    <ion-item>
+      <ion-input type="text" placeholder="Title" name="title" ngModel required class="form-control"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Pays" name="country" ngModel required=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Ville" name="city" ngModel required=""></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Mot clé" name="keywords" ngModel required=""></ion-input>
+    </ion-item>
+    <p></p>
+
+    <button ion-button="" type="submit"block [disabled]="!f.valid">Enregistrer</button>
+
+  </form>
+
+</ion-content>

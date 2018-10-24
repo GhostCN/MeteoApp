@@ -1,1 +1,40 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<!--
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+      <img src="../assets/imgs/back.jpg" height="140" width="960"/>
+    </ion-toolbar>
+
+  </ion-header>
+
+  <ion-content class="bodyMenu">
+
+    <button menuClose ion-item="" detail-none *ngFor="let m of menus" (click)="OnePage(m)" class="bntButton">
+      {{m.title}}
+    </button>
+  </ion-content>
+</ion-menu>
+-->
+
+<img  src="../assets/imgs/mara.jpg" width="139" height="140" />
+<ion-menu [content]="content" id="menu-avatar">
+  <ion-content>
+    <div class="menu-header">
+      <!--material-design-background-->
+      <ion-avatar item-start="">
+        <img src="../assets/imgs/mara.jpg" height="140" width="139"/>
+      </ion-avatar>
+
+      <p class="e-mail">mbackesene93@gmail.com</p>
+    </div>
+    <ion-list no-lines>
+      <button menuClose ion-item="" detail-none *ngFor="let m of menus" (click)="OnePage(m)" class="bntButton">
+        <ion-icon [name]="m.icon" item-left></ion-icon>
+        {{m.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav #content [root]="rootPage"></ion-nav>

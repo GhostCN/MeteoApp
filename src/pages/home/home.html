@@ -1,14 +1,31 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+<ion-header >
+  <ion-navbar color="darkseagreen">
+    <ion-title>Menu</ion-title>
+    <button ion-button="" menuToggle="">
+      <ion-icon name="menu"></ion-icon>
+    </button>
   </ion-navbar>
+
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+  <ion-card padding>
+    <ion-card-header class="cardHeader">
+      <ion-card-title>About Me</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-list>
+
+        <li>
+          {{contact?.name}}
+        </li>
+        <li> {{contact?.tel}}</li>
+        <li>{{contact?.email}}</li>
+
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>
